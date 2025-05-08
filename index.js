@@ -5,6 +5,12 @@ const getImageBtn = document.getElementById("get-image-btn");
 const gifsOnlyOption = document.getElementById("gifs-only-option");
 const memeModal = document.getElementById("meme-modal");
 const memeModalInner = document.getElementById("meme-modal-inner");
+const memeModalCloseBtn = document.getElementById("meme-modal-close-btn");
+
+memeModalCloseBtn.addEventListener("click", closeModal);
+function closeModal() {
+  memeModal.style.display = "none";
+}
 
 getImageBtn.addEventListener("click", renderCat);
 
@@ -17,6 +23,7 @@ emotionRadios.addEventListener("change", function (e) {
   const selectedParentEl = selectedElement.parentElement;
   selectedParentEl.classList.add("highlight");
 });
+
 function renderCat() {
   const catObject = getSingleCatObject();
   memeModalInner.innerHTML = `
